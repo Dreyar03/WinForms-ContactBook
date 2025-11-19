@@ -17,6 +17,7 @@ namespace ContactBookApp
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            RefreshContactList();
         }
         private void RefreshContactList()
         {
@@ -183,6 +184,10 @@ namespace ContactBookApp
 
                 RefreshContactList();
             }
+
+            contactToUpdate.Phone = txtPhone.Text; // The last line of your update logic
+            _manager.SaveContacts();
+            RefreshContactList();
         }
 
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
